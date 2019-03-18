@@ -1,4 +1,4 @@
-# lalamove-intern-tech-challenge
+# Lalamove Technical Challenge
 Application for Lalamove Tech Summer Internship programme 2019
 
 ## License
