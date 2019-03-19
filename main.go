@@ -85,11 +85,12 @@ func gitHubReleaseAPI(repo string, subrepo string) []*semver.Version {
 	opt := &github.ListOptions{PerPage: 10}
 	releases, _, err := client.Repositories.ListReleases(ctx, repo, subrepo, opt)
 
-	defer func(){
+	defer func(repo string, subrepo string){
 		if r := recover(); r != nil{
-			fmt.Println("Recoverd. The error is: ", r)
+			fmt.Printf("The repo \"%s/%s\" is not found \n", repo, subrepo)
+			fmt.Println(r)
 		}
-	}()
+	}(repo, subrepo)
 
 	if err != nil {
 		panic(err) // is this really a good way?

@@ -2,3 +2,4 @@ kubernetes/kubernetes,1.8.0
 prometheus/prometheus,2.2.0
 aspnet/AspNetCore,2.1.8
 golang/protobuf,2.0.0
+abc/abc,1.0.0
