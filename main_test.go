@@ -49,6 +49,24 @@ func TestLatestVersions(t *testing.T) {
 			minVersion:     semver.New("2.2.1"),
 		},
 		// Implement more relevant test cases here, if you can think of any
+		{
+			// No available version
+			versionSlice:   []string{"2.2.1", "2.2.0"},
+			expectedResult: []string{},
+			minVersion:     semver.New("2.2.2"),
+		},
+			// Handle pre-release fields
+		{
+			versionSlice:   []string{ "1.1.0-alpha.1","1.1.0-alpha","1.1.0-beta"},
+			expectedResult: []string{"1.1.0-beta"},
+			minVersion:     semver.New("1.0.0"),
+		},
+			// Ignore build metadata
+		{
+			versionSlice:   []string{ "1.1.0-alpha","1.1.0-alpha+001"},
+			expectedResult: []string{"1.1.0-alpha"},
+			minVersion:     semver.New("1.0.0"),
+		},
 	}
 
 	test := func(versionData []string, expectedResult []string, minVersion *semver.Version) {
