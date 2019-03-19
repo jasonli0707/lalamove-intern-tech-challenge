@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 	"sort"
-  "bufio"
-  "os"
+  	"bufio"
+  	"os"
 	"strings"
 
 	"github.com/coreos/go-semver/semver"
